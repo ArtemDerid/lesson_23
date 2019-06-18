@@ -23,29 +23,29 @@ public class Faction {
 
 	public void addDeputy() {
 		Supplier<Deputy> createDeputy = () -> {
-			System.out.println("Введіть депутата");
+			System.out.println("Г‚ГўГҐГ¤ВіГІГј Г¤ГҐГЇГіГІГ ГІГ ");
 
-			System.out.println("Введіть вагу");
+			System.out.println("Г‚ГўГҐГ¤ВіГІГј ГўГ ГЈГі");
 			Scanner sc = new Scanner(System.in);
 			Double weight = sc.nextDouble();
 
-			System.out.println("Введіть ріст");
+			System.out.println("Г‚ГўГҐГ¤ВіГІГј Г°ВіГ±ГІ");
 			sc = new Scanner(System.in);
 			int height = sc.nextInt();
 
-			System.out.println("Введіть ім'я");
+			System.out.println("Г‚ГўГҐГ¤ВіГІГј ВіГ¬'Гї");
 			sc = new Scanner(System.in);
 			String name = sc.next();
 
-			System.out.println("Введіть прізвище");
+			System.out.println("Г‚ГўГҐГ¤ВіГІГј ГЇГ°ВіГ§ГўГЁГ№ГҐ");
 			sc = new Scanner(System.in);
 			String secondName = sc.next();
 
-			System.out.println("Введіть вік");
+			System.out.println("Г‚ГўГҐГ¤ВіГІГј ГўВіГЄ");
 			sc = new Scanner(System.in);
 			int age = sc.nextInt();
 
-			System.out.println("Депутат - хабарник? якщо так - натисніть 1, якщо ні - натисніть 2");
+			System.out.println("Г„ГҐГЇГіГІГ ГІ - ГµГ ГЎГ Г°Г­ГЁГЄ? ГїГЄГ№Г® ГІГ ГЄ - Г­Г ГІГЁГ±Г­ВіГІГј 1, ГїГЄГ№Г® Г­Ві - Г­Г ГІГЁГ±Г­ВіГІГј 2");
 			sc = new Scanner(System.in);
 			int grafter = sc.nextInt();
 			isGrafter(grafter);
@@ -58,19 +58,19 @@ public class Faction {
 				deputy.giveGraft();
 			}
 
-			System.out.println("Ви додали депутата " + deputy);
+			System.out.println("Г‚ГЁ Г¤Г®Г¤Г Г«ГЁ Г¤ГҐГЇГіГІГ ГІГ  " + deputy);
 			return deputy;
 		};
 		createDeputy.get();
 	}
 
 	public void removeDeputy() {
-		System.out.println("Прізвище депутата, якого хочете видалити");
+		System.out.println("ГЏГ°ВіГ§ГўГЁГ№ГҐ Г¤ГҐГЇГіГІГ ГІГ , ГїГЄГ®ГЈГ® ГµГ®Г·ГҐГІГҐ ГўГЁГ¤Г Г«ГЁГІГЁ");
 
 		Scanner sc = new Scanner(System.in);
 		String secondName = sc.next();
 
-		System.out.println("Ім'я депутата, якого хочете видалити");
+		System.out.println("ВІГ¬'Гї Г¤ГҐГЇГіГІГ ГІГ , ГїГЄГ®ГЈГ®Р° ГµГ®Г·ГҐГІГҐ ГўГЁГ¤Г Г«ГЁГІГЁ");
 
 		sc = new Scanner(System.in);
 		String name = sc.next();
@@ -82,9 +82,9 @@ public class Faction {
 					return d;
 				});
 		if (removedDeputy.isPresent()) {
-			System.out.println("Видалено депутата " + removedDeputy.get());
+			System.out.println("Г‚ГЁГ¤Г Г«ГҐГ­Г® Г¤ГҐГЇГіГІГ ГІГ  " + removedDeputy.get());
 		} else {
-			System.out.println("Такого депутата не знайдено");
+			System.out.println("Г’Г ГЄГ®ГЈГ® Г¤ГҐГЇГіГІГ ГІГ  Г­ГҐ Г§Г­Г Г©Г¤ГҐГ­Г®");
 		}
 
 	}
@@ -92,7 +92,7 @@ public class Faction {
 	public void showGrafter() {
 		List<Deputy> listOfGrafters = listOfDeputies.stream().filter(d -> d.isGrafter() == true)
 				.peek(deputy -> System.out
-						.println(deputy.getSecondName() + " " + deputy.getName() + " отримав " + deputy.getGraft()))
+						.println(deputy.getSecondName() + " " + deputy.getName() + " Г®ГІГ°ГЁГ¬Г Гў " + deputy.getGraft()))
 				.collect(Collectors.toList());
 		System.out.println(listOfGrafters);
 	}
@@ -101,9 +101,9 @@ public class Faction {
 		Deputy biggestGrafter = listOfDeputies.stream().sorted(new DeputiesGraftComparator())
 				.collect(Collectors.toList()).get(0);
 		if(biggestGrafter.getGraft() != 0) {
-			System.out.println("Найбільший хабарник - " + biggestGrafter);
+			System.out.println("ГЌГ Г©ГЎВіГ«ГјГёГЁГ© ГµГ ГЎГ Г°Г­ГЁГЄ - " + biggestGrafter);
 		}else {
-			System.out.println("У цій фракції хабарників немає");
+			System.out.println("Г“ Г¶ВіГ© ГґГ°Г ГЄГ¶ВіВї ГµГ ГЎГ Г°Г­ГЁГЄВіГў Г­ГҐГ¬Г Вє");
 		}
 	}
 
